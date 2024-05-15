@@ -22,8 +22,16 @@ class Database:
                      data TEXT,
                      hora TEXT,
                      FOREIGN KEY (user_id) REFERENCES usuarios(id))''')
-
-
+                     
+        c.execute('''CREATE TABLE IF NOT EXISTS despesa (
+                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     user_id INTEGER,
+                     categoria TEXT VARCHAR(45),
+                     valor FLOAT,
+                     descricao VARCHAR(200),
+                     data TEXT,
+                     hora TEXT,
+                     FOREIGN KEY (user_id) REFERENCES usuarios(id))''')
 
 
         conn.commit()

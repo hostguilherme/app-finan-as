@@ -1,8 +1,11 @@
 from models.usuario import Usuario
 from models.renda import Renda
+from models.despesa import Despesa
+from templates import menu_despesa
+
 def menu(dados_usuario):
     user = dados_usuario[1]
-    id = dados_usuario[0]
+    user_id = dados_usuario[0]
     while True:
 
         print(f"Bem vindo ao seu sistema de gerenciamento:{user} ")
@@ -24,11 +27,10 @@ def menu(dados_usuario):
         escolha = input("Escolha a opção: ")
 
         if escolha == '1': 
-            Renda.adicionar_renda(id)
+            Renda.adicionar_renda(user_id)
 
         elif escolha == '2':
-
-            pass
+            menu_despesa.main_despesa(user_id)
 
         elif escolha == '3':
 
